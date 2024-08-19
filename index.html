@@ -21,7 +21,7 @@ libraries:
         </button>
         <ul class="dropdown-menu">
           {% for library in page.libraries %}
-          <li><button class="dropdown-item" @click="activeTab = '{{library.title}}'">{{ library.title }}</button></li> 
+          <li><button class="dropdown-item" @click="activeTab = '{{library.title}}'; window.href='#tables';">{{ library.title }}</button></li> 
           {% endfor %}
         </ul>
       </div>
@@ -88,79 +88,85 @@ libraries:
       </div>
     </div>
   </div>
-  <div class="container-fluid mb-5">
+  <div class="container-fluid mb-5" id="tables">
       <ul class="nav nav-pills mb-5">
         <li class="nav-item fw-bold">
           <button
             :class="{ 'nav-link active': activeTab === 'CBS', 'nav-link': activeTab !== 'CBS' }"
             @click="activeTab = 'CBS'"
+            class="fs-3"
           >CBS</button>
         </li>
         <li class="nav-item fw-bold">
           <button
             :class="{ 'nav-link active': activeTab === 'LISS', 'nav-link': activeTab !== 'LISS' }"
             @click="activeTab = 'LISS'"
+            class="fs-3"
           >LISS</button>
         </li>
       </ul>  
     </ul>
     <!-- LISS -->
-    <table class="table table-striped table-hover table-bordered" x-show="activeTab === 'LISS'">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>LISS project nr.</th>
-          <th>Project lead</th>
-          <th>ODISSEI grant</th>
-          <th>Publication</th>
-          <th>Data</th>
-          <th>Code</th>
-          <th>Code Language</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in site.data.liss %}
-        <tr>
-          <td width="30%">{{ row["Title"] }}</td>
-          <td width="10%">{{ row["LISS project nr."] }}</td>
-          <td width="20%">{{ row["Project lead"] }}</td>
-          <td width="10%">{{ row["ODISSEI grant"] }}</td>
-          <td width="10%">{{ row["Publication"] }}</td>
-          <td width="20%">{{ row["Data"] }}</td>
-          <td width="10%">{{ row["Code"] }}</td>
-          <td width="20%">{{ row["Code Language"] }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-bordered" x-show="activeTab === 'LISS'">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>LISS project nr.</th>
+            <th>Project lead</th>
+            <th>ODISSEI grant</th>
+            <th>Publication</th>
+            <th>Data</th>
+            <th>Code</th>
+            <th>Code Language</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in site.data.liss %}
+          <tr>
+            <td width="30%">{{ row["Title"] }}</td>
+            <td width="10%">{{ row["LISS project nr."] }}</td>
+            <td width="20%">{{ row["Project lead"] }}</td>
+            <td width="10%">{{ row["ODISSEI grant"] }}</td>
+            <td width="10%">{{ row["Publication"] }}</td>
+            <td width="20%">{{ row["Data"] }}</td>
+            <td width="10%">{{ row["Code"] }}</td>
+            <td width="20%">{{ row["Code Language"] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
     <!-- CBS -->
-    <table class="table table-striped table-hover table-bordered" x-show="activeTab === 'CBS'">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>CBS project nr.</th>
-          <th>Project lead</th>
-          <th>ODISSEI grant</th>
-          <th>Publication</th>
-          <th>Data</th>
-          <th>Code</th>
-          <th>Code Language</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in site.data.cbs %}
-        <tr>
-          <td width="30%">{{ row["Title"] }}</td>
-          <td width="10%">{{ row["CBS project nr."] }}</td>
-          <td width="20%">{{ row["Project lead"] }}</td>
-          <td width="10%">{{ row["ODISSEI grant"] }}</td>
-          <td width="10%">{{ row["Publication"] }}</td>
-          <td width="20%">{{ row["Data"] }}</td>
-          <td width="10%">{{ row["Code"] }}</td>
-          <td width="20%">{{ row["Code Language"] }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-bordered" x-show="activeTab === 'CBS'">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>CBS project nr.</th>
+            <th>Project lead</th>
+            <th>ODISSEI grant</th>
+            <th>Publication</th>
+            <th>Data</th>
+            <th>Code</th>
+            <th>Code Language</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in site.data.cbs %}
+          <tr>
+            <td width="30%">{{ row["Title"] }}</td>
+            <td width="10%">{{ row["CBS project nr."] }}</td>
+            <td width="20%">{{ row["Project lead"] }}</td>
+            <td width="10%">{{ row["ODISSEI grant"] }}</td>
+            <td width="10%">{{ row["Publication"] }}</td>
+            <td width="20%">{{ row["Data"] }}</td>
+            <td width="10%">{{ row["Code"] }}</td>
+            <td width="20%">{{ row["Code Language"] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

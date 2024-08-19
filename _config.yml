@@ -10,3 +10,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # Build settings
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+# CSV reading
+csv_reader:
+  converters:
+    - numeric
+    - datetime
+  headers: true
+  encoding: utf-8
