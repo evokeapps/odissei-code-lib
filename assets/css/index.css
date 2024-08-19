@@ -1,0 +1,10 @@
+---
+---
+.container-fluid{
+    max-width: 1600px;
+}
+.hero-bg{
+    background-image: url({{ 'assets/img/hero.png' | relative_url }});
+    background-size: cover;
+    background-position: center;
+}
