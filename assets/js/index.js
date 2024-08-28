@@ -1,8 +1,8 @@
 $(document).ready(function () {
   $("#lissTable").DataTable({
-    pageSize: 50
+    pageLength: 50
   });
   $("#cbsTable").DataTable({
-    pageSize: 50
+    pageLength: 50
   });
 });
